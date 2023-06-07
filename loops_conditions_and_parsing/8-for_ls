@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# printing a formatted content of a directory
+for files in *
+do
+	name=$(echo "$files" | awk -F '-' '{print $2}')
+	echo "$name"
+done
