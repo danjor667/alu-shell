@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
-# Set the input field separator (IFS) to ':' to parse the fields in /etc/passwd
-
-IFS=":"
-
-# Read the /etc/passwd file line by line using a while loop
-while read -r username password userid groupid user_info homedir shell
+#A Bash script that displays the content of the file /etc/passwd, using the while loop + IFS
+while IFS=":" read -r USERNAME PASSWORD uid GID GECOS HDIR CMD;
 do
-    # Extract the user ID info from the user_info field
-    user_id_info="${user_info#*,}"
-
-    # Print the formatted output
-    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell."
-    echo "User ID's place is protected by the passcode $password, more info about the user here: $user_id_info"
-    echo
-
+    echo "The user $USERNAME is part of the $GID gang, lives in $HDIR and rides $CMD. $uid's place is protected by the passcode $PASSWORD, more info about the user here: $GECOS"
 done < "/etc/passwd"
-
