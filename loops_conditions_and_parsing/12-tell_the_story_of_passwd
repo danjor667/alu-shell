@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Set the input field separator (IFS) to ':' to parse the fields in /etc/passwd
+
 IFS=":"
 
 # Read the /etc/passwd file line by line using a while loop
